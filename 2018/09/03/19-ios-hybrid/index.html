@@ -6,6 +6,8 @@
 <li>性能优化，hybrid 离线能力建设</li>
 <li>数据统计和性能分析以及监控</li>
 </ol>
+<a id="more"></a>
+
 <h2 id="一、JavaScript-和-Native-的相互通信"><a href="#一、JavaScript-和-Native-的相互通信" class="headerlink" title="一、JavaScript 和 Native 的相互通信"></a>一、JavaScript 和 Native 的相互通信</h2><h3 id="JS-调用-Native"><a href="#JS-调用-Native" class="headerlink" title="JS 调用 Native"></a>JS 调用 Native</h3><p>业内比较好的通用做法是上下文注入，安卓 <code>addJavascriptInterface</code> 注入。iOS 使用 <code>WKWebView - scriptMessageHandler</code> 注入，这种方式注入其实只给注入对象起了一个名字<code>nativeObject</code>，这种对象只有一个函数 <code>postMessage</code></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;准备要传给native的数据，包括指令，数据，回调等</span><br><span class="line">var data &#x3D; &#123;</span><br><span class="line">    method:&#39;location&#39;,</span><br><span class="line">    data:&#39;http:&#x2F;&#x2F;baidu.com&#39;,</span><br><span class="line">    callback:&#39;1&#39;,</span><br><span class="line">&#125;;</span><br><span class="line">&#x2F;&#x2F;传递给客户端</span><br><span class="line">window.webkit.messageHandlers.nativeObject.postMessage(data);</span><br></pre></td></tr></table></figure>
 
@@ -46,6 +48,7 @@
 <p>到了 iOS 11 就可以使用系统提供的 <code>[setURLSchemeHandler:forURLScheme:]</code> 实现离线。<br>但 <code>WKURLSchemeHandler</code> 不能处理 Http、Https 等常规 scheme，所以需要自定义 scheme。</p>
 <p>基本方案就是，在 WebView loadRequest 前判断本地是否有离线资源，支持离线且有离线资源的时候，修改 Http/Https 为自定义的 scheme，然后在 <code>NSURLProtocol</code> 或者 <code>WKURLSchemeHandler</code>去实现对本地资源的加载。</p>
 <h2 id="四、数据统计和监控建设"><a href="#四、数据统计和监控建设" class="headerlink" title="四、数据统计和监控建设"></a>四、数据统计和监控建设</h2><p>doing。。</p>
+<p>参考：<a href="http://www.awhisper.net/2018/03/06/hybrid-webcontainer/" target="_blank" rel="noopener">从零收拾一个hybrid框架</a></p>
 </div></article></div></main><footer><div class="paginator"><a href="/2018/01/26/18-iOS-crash/" class="next">NEXT</a></div><div id="disqus_thread"></div><script>var disqus_shortname = 'sanyucz';
 var disqus_identifier = '2018/09/03/19-ios-hybrid/';
 var disqus_title = 'iOS Hybrid 的实践';
