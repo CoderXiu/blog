@@ -2,6 +2,20 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://iosgg.cn/2019/05/27/20-ios-performance/</loc>
+    
+    <lastmod>2020-05-06T17:00:51.519Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://iosgg.cn/about.html</loc>
+    
+    <lastmod>2020-05-03T10:58:19.483Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://iosgg.cn/2018/09/03/19-ios-hybrid/</loc>
     
     <lastmod>2020-05-03T10:54:34.118Z</lastmod>
@@ -124,13 +138,6 @@
     <loc>http://iosgg.cn/2016/02/20/0-blog-preface/</loc>
     
     <lastmod>2020-04-26T15:22:00.172Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://iosgg.cn/about.html</loc>
-    
-    <lastmod>2020-02-14T11:27:30.172Z</lastmod>
     
   </url>
   
